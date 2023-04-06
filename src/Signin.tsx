@@ -16,7 +16,11 @@ interface ILocationState {
   pwd: string;
 }
 
-const SignIn = () => {
+interface Props {
+  setIsLogin: (value: boolean) => void;
+}
+
+const SignIn = ({ setIsLogin }: Props) => {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [emailError, setEmailError] = useState(true);
@@ -30,10 +34,12 @@ const SignIn = () => {
   const location = useLocation();
   const locationState: ILocationState | null = location.state;
 
-  //locationState가 존재하면 submit 버튼 활성화
+  //locationState가 존재하면 submit 버튼 활성화 및 state 저장
   useEffect(() => {
     locationState && setEmailError(false);
     locationState && setPwdError(false);
+    locationState && setEmail(locationState.email);
+    locationState && setPwd(locationState.pwd);
   }, []);
 
   const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,13 +82,15 @@ const SignIn = () => {
       )
       .then((res) => {
         if (res.status === 200) {
-          setShowAlert(true);
+          setShowAlert(false);
           setIsFail(false);
           localStorage.setItem("access_token", res.data.access_token);
+          setIsLogin(true);
           navigate("/todo");
         }
       })
       .catch((err) => {
+        console.log(err);
         setIsFail(true);
         setShowAlert(true);
         setFailM(err.response.data.message);
