@@ -14,10 +14,13 @@ const SignUp = () => {
   const [emailError, setEmailError] = useState(true);
   const [pwdError, setPwdError] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
+  const [isFail, setIsFail] = useState<boolean>();
 
   const navigate = useNavigate();
 
   const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setShowAlert(false);
+    setIsFail(false);
     const e = event.currentTarget.value;
     if (e.includes("@")) {
       setEmail(e);
@@ -27,6 +30,8 @@ const SignUp = () => {
     }
   };
   const pwdChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setShowAlert(false);
+    setIsFail(false);
     const p = event.currentTarget.value;
     if (p.length >= 8) {
       setPwd(p);
@@ -54,6 +59,7 @@ const SignUp = () => {
       .then((res) => {
         if (res.status === 201) {
           setShowAlert(true);
+          setIsFail(false);
           setTimeout(
             () =>
               navigate("/signin", {
@@ -66,7 +72,11 @@ const SignUp = () => {
           );
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setIsFail(true);
+        setShowAlert(true);
+        console.log(err);
+      });
   };
   return (
     <Container component="main" maxWidth="xs">
@@ -79,7 +89,7 @@ const SignUp = () => {
         }}
       >
         <Typography component="h1" variant="h5">
-          Sign up
+          Sign Up
         </Typography>
         <Box
           component="form"
@@ -120,9 +130,12 @@ const SignUp = () => {
         </Box>
       </Box>
       {showAlert && (
-        <Alert severity="success" onClose={() => setShowAlert(false)}>
-          <AlertTitle>가입 성공!</AlertTitle>
-          로그인 페이지로 이동합니다.
+        <Alert
+          severity={isFail ? "error" : "success"}
+          onClose={() => setShowAlert(false)}
+        >
+          <AlertTitle>{isFail ? "가입 실패!" : "가입 성공!"}</AlertTitle>
+          {isFail ? "중복된 비밀번호 입니다." : "로그인 페이지로 이동합니다."}
         </Alert>
       )}
     </Container>
