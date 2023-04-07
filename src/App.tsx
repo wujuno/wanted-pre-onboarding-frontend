@@ -18,7 +18,7 @@ function App() {
             isLogin ? (
               <Navigate replace to={"/todo"} />
             ) : (
-              <SignIn setIsLogin={setIsLogin} />
+              <Navigate replace to={"/signin"} />
             )
           }
         />
