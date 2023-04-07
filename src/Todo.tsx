@@ -60,7 +60,10 @@ const Todo = () => {
           },
         }
       )
-      .then((res) => setTodos((prev) => [res.data, ...prev]))
+      .then((res) => {
+        setTodos((prev) => [res.data, ...prev]);
+        setNewTodo("");
+      })
       .catch((err) => console.log(err));
   };
 
@@ -160,15 +163,21 @@ const Todo = () => {
           alignItems: "center",
         }}
       >
-        <Box sx={{ mt: 4, width: "100%" }}>
+        <Box
+          component="form"
+          noValidate
+          onSubmit={submitHandle}
+          sx={{ mt: 4, width: "100%" }}
+        >
           <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
             <InputLabel htmlFor="outlined-adornment">Write To do</InputLabel>
             <OutlinedInput
               data-testid="new-todo-input"
               name="newTodo"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setNewTodo(e.currentTarget.value)
-              }
+              value={newTodo}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setNewTodo(e.currentTarget.value);
+              }}
               endAdornment={
                 <InputAdornment position="end">
                   <Button
@@ -191,40 +200,35 @@ const Todo = () => {
                   onChange={() => handleComplete(todo.todo, todo.id)}
                 />
                 {editing && editTodoId === todo.id ? (
-                  <Box component="form" noValidate onSubmit={submitHandle}>
-                    <FormControl
-                      sx={{ m: 1, width: "100%" }}
-                      variant="outlined"
-                    >
-                      <InputLabel htmlFor="outlined-adornment">
-                        Edit To do
-                      </InputLabel>
-                      <OutlinedInput
-                        data-testid="modify-input"
-                        name="editTodo"
-                        defaultValue={todo.todo}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <Button
-                              data-testid="submit-button"
-                              type="submit"
-                              variant="contained"
-                            >
-                              제출
-                            </Button>
-                            <Button
-                              data-testid="cancel-button"
-                              variant="contained"
-                              onClick={() => setEditing(false)}
-                            >
-                              취소
-                            </Button>
-                          </InputAdornment>
-                        }
-                        label="edit-todo-input"
-                      />
-                    </FormControl>
-                  </Box>
+                  <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment">
+                      Edit To do
+                    </InputLabel>
+                    <OutlinedInput
+                      data-testid="modify-input"
+                      name="editTodo"
+                      defaultValue={todo.todo}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <Button
+                            data-testid="submit-button"
+                            type="submit"
+                            variant="contained"
+                          >
+                            제출
+                          </Button>
+                          <Button
+                            data-testid="cancel-button"
+                            variant="contained"
+                            onClick={() => setEditing(false)}
+                          >
+                            취소
+                          </Button>
+                        </InputAdornment>
+                      }
+                      label="edit-todo-input"
+                    />
+                  </FormControl>
                 ) : (
                   <>
                     <Typography variant="subtitle2">{todo.todo}</Typography>
