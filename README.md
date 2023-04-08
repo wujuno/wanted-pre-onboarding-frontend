@@ -9,9 +9,9 @@
 
 ## 기능 설명
 #### 가입페이지
-<img src="https://i.ibb.co/g7VwXjp/i-Shot-2023-04-08-00-34-37.png" alt="i-Shot-2023-04-08-00-34-37" border="0">
-<img src="https://i.ibb.co/zmmWj9s/i-Shot-2023-04-08-00-35-27.png" alt="i-Shot-2023-04-08-00-35-27" border="0">
-<img src="https://i.ibb.co/LSznrdC/i-Shot-2023-04-08-00-36-04.png" alt="i-Shot-2023-04-08-00-36-04" border="0">
+<img src="https://i.ibb.co/mRN2Y6Q/i-Shot-2023-04-08-15-17-57.png" alt="i-Shot-2023-04-08-15-17-57" border="0">
+<img src="https://i.ibb.co/BrG2mb8/i-Shot-2023-04-08-15-18-10.png" alt="i-Shot-2023-04-08-15-18-10" border="0">
+<img src="https://i.ibb.co/F37qvjY/i-Shot-2023-04-08-15-18-20.png" alt="i-Shot-2023-04-08-15-18-20" border="0">
 
 - 이메일, 비밀번호를 입력하여 가입할 수 있습니다.
 - 이메일은 @ 포함, 비밀번호는 8자이상 조건을 만족해야 가입 버튼이 활성화 됩니다.
@@ -20,9 +20,9 @@
 - access_token이 있는 유저가 /signup으로 이동하면 /todo 페이지로 리다이렉트 됩니다.
 
 #### 로그인 페이지
-<img src="https://i.ibb.co/XxqXrcD/i-Shot-2023-04-08-00-36-24.png" alt="i-Shot-2023-04-08-00-36-24" border="0">
-<img src="https://i.ibb.co/d5VykZx/i-Shot-2023-04-08-00-36-54.png" alt="i-Shot-2023-04-08-00-36-54" border="0">
-<img src="https://i.ibb.co/2srHnbg/i-Shot-2023-04-08-01-08-34.png" alt="i-Shot-2023-04-08-01-08-34" border="0">
+<img src="https://i.ibb.co/NNFBctS/i-Shot-2023-04-08-15-18-36.png" alt="i-Shot-2023-04-08-15-18-36" border="0">
+<img src="https://i.ibb.co/StWXZVX/i-Shot-2023-04-08-15-18-45.png" alt="i-Shot-2023-04-08-15-18-45" border="0">
+<img src="https://i.ibb.co/myVX3KM/i-Shot-2023-04-08-15-18-55.png" alt="i-Shot-2023-04-08-15-18-55" border="0">
 
 - 가입했던 이메일과 비밀번호를 입력하여 로그인 합니다.
 - 가입페이지에서 가입 후 이동시 자동으로 이메일과 비밀번호가 입력되어 있는 상태입니다.
@@ -34,9 +34,9 @@
 
 
 #### todo 페이지
-<img src="https://i.ibb.co/wsp5mLh/i-Shot-2023-04-08-00-39-30.png" alt="i-Shot-2023-04-08-00-39-30" border="0">
-<img src="https://i.ibb.co/5WqqKTg/i-Shot-2023-04-08-00-38-05.png" alt="i-Shot-2023-04-08-00-38-05" border="0">
-<img src="https://i.ibb.co/NtYwDtL/i-Shot-2023-04-08-01-16-01.png" alt="i-Shot-2023-04-08-01-16-01" border="0">
+<img src="https://i.ibb.co/z8g2jC4/i-Shot-2023-04-08-15-19-19.png" alt="i-Shot-2023-04-08-15-19-19" border="0">
+<img src="https://i.ibb.co/Prd7n2Q/i-Shot-2023-04-08-15-20-03.png" alt="i-Shot-2023-04-08-15-20-03" border="0">
+<img src="https://i.ibb.co/4my7yqd/i-Shot-2023-04-08-15-20-36.png" alt="i-Shot-2023-04-08-15-20-36" border="0">
 
 - 로그인한 회원만 todo페이지로 이동할 수 있습니다.
 - 입력 창에 할 일을 적고 추가 버튼을 누르면 할 일이 추가됩니다.
