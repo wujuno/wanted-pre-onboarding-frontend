@@ -2,6 +2,7 @@
 
 
 ## 배포
+🚀 https://wanted-pre-task.netlify.app/
 
 ## 적용 기술
 <strong>React, Typescript, react-router-dom(v6.10), MUI, emotion, axios</strong>
