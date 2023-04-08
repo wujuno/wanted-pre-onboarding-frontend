@@ -169,29 +169,25 @@ const Todo = () => {
           onSubmit={submitHandle}
           sx={{ mt: 4, width: "100%" }}
         >
-          <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment">Write To do</InputLabel>
-            <OutlinedInput
+          <div style={{ display: "flex", gap: "10px", marginBottom: "1em" }}>
+            <input
+              style={{ width: "100%", padding: "1em", fontSize: "18px" }}
+              placeholder="Write To do"
               data-testid="new-todo-input"
               name="newTodo"
               value={newTodo}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setNewTodo(e.currentTarget.value);
               }}
-              endAdornment={
-                <InputAdornment position="end">
-                  <Button
-                    data-testid="new-todo-add-button"
-                    onClick={addHandle}
-                    variant="contained"
-                  >
-                    추가
-                  </Button>
-                </InputAdornment>
-              }
-              label="new-todo-input"
             />
-          </FormControl>
+            <Button
+              data-testid="new-todo-add-button"
+              onClick={addHandle}
+              variant="contained"
+            >
+              추가
+            </Button>
+          </div>
           {todos &&
             todos.map((todo) => (
               <TodoWrapper key={todo.id}>
@@ -200,35 +196,41 @@ const Todo = () => {
                   onChange={() => handleComplete(todo.todo, todo.id)}
                 />
                 {editing && editTodoId === todo.id ? (
-                  <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment">
-                      Edit To do
-                    </InputLabel>
-                    <OutlinedInput
+                  <div style={{ display: "flex", width: "100%" }}>
+                    <input
                       data-testid="modify-input"
                       name="editTodo"
                       defaultValue={todo.todo}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <Button
-                            data-testid="submit-button"
-                            type="submit"
-                            variant="contained"
-                          >
-                            제출
-                          </Button>
-                          <Button
-                            data-testid="cancel-button"
-                            variant="contained"
-                            onClick={() => setEditing(false)}
-                          >
-                            취소
-                          </Button>
-                        </InputAdornment>
-                      }
-                      label="edit-todo-input"
+                      style={{
+                        width: "100%",
+                        padding: "1em",
+                        fontSize: "18px",
+                      }}
                     />
-                  </FormControl>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "4px",
+                        alignItems: "center",
+                        marginLeft: "1em",
+                      }}
+                    >
+                      <Button
+                        data-testid="submit-button"
+                        type="submit"
+                        variant="contained"
+                      >
+                        제출
+                      </Button>
+                      <Button
+                        data-testid="cancel-button"
+                        variant="contained"
+                        onClick={() => setEditing(false)}
+                      >
+                        취소
+                      </Button>
+                    </div>
+                  </div>
                 ) : (
                   <>
                     <Typography variant="subtitle2">{todo.todo}</Typography>
