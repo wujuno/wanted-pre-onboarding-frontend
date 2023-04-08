@@ -1,4 +1,4 @@
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -97,22 +97,27 @@ const SignUp = () => {
           onSubmit={handleSubmit}
           sx={{ mt: 4, width: "100%" }}
         >
-          <TextField
+          <input
             required
-            fullWidth
+            style={{ width: "100%", padding: "1em", fontSize: "18px" }}
+            placeholder="Email"
             data-testid="email-input"
             id="email"
-            label="Email Address"
             name="email"
             type="email"
             onChange={emailChangeHandler}
           />
-          <TextField
-            sx={{ mt: 2 }}
+          <input
+            style={{
+              width: "100%",
+              padding: "1em",
+              fontSize: "18px",
+              marginTop: "1em",
+            }}
+            placeholder="Password"
             required
-            fullWidth
+            data-testid="password-input"
             name="password"
-            label="Password"
             type="password"
             id="password"
             onChange={pwdChangeHandler}

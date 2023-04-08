@@ -116,23 +116,28 @@ const SignIn = ({ setIsLogin }: Props) => {
           onSubmit={handleSubmit}
           sx={{ mt: 4, width: "100%" }}
         >
-          <TextField
+          <input
             required
-            fullWidth
+            style={{ width: "100%", padding: "1em", fontSize: "18px" }}
+            placeholder="Email"
             data-testid="email-input"
             id="email"
-            label="Email Address"
             name="email"
             type="email"
             defaultValue={locationState ? locationState.email : ""}
             onChange={emailChangeHandler}
           />
-          <TextField
-            sx={{ mt: 2 }}
+          <input
+            style={{
+              width: "100%",
+              padding: "1em",
+              fontSize: "18px",
+              marginTop: "1em",
+            }}
+            placeholder="Password"
             required
-            fullWidth
+            data-testid="password-input"
             name="password"
-            label="Password"
             type="password"
             id="password"
             defaultValue={locationState ? locationState.pwd : ""}
